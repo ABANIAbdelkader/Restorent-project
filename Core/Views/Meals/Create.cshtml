@@ -1,0 +1,119 @@
+﻿@model Core.Models.Meal
+
+@{
+    ViewData["Title"] = "Create";
+ 
+       
+        Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>Add Meal</title>
+    <style>
+        body {
+            background-image: url('/images/bgg.jpg');
+            background-color: #343a40; /* Dark background */
+            color: #ffc107; /* Warning text color */
+        }
+
+        h1, h4 {
+            color: #ffc107; /* Yellow headings */
+            text-align: center;
+        }
+
+        .form-control {
+            background-color: #495057; /* Darker input fields */
+            color: #ffc107; /* Yellow text in input fields */
+            border: 1px solid #ffc107; /* Yellow border */
+        }
+
+            .form-control:focus {
+                background-color: #6c757d; /* Lighter focus state */
+                color: #fff; /* White text on focus */
+                border-color: #ffc107; /* Yellow border on focus */
+            }
+
+        .btn-primary {
+            background-color: #ffc107; /* Yellow button */
+            border-color: #ffc107; /* Yellow border */
+            width: 100%; /* Full width button */
+        }
+
+            .btn-primary:hover {
+                background-color: #e0a800; /* Darker yellow on hover */
+                border-color: #e0a800; /* Darker yellow border on hover */
+            }
+
+        .text-danger {
+            color: #dc3545; /* Red for validation messages */
+        }
+
+        .container {
+            margin-top: 50px; /* Space from the top */
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #ffc107; /* Yellow text */
+        }
+
+            .back-link:hover {
+                text-decoration: underline;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Create Meal</h1>
+        <h4>Fill in the details below</h4>
+        <hr />
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="price" class="control-label"></label>
+                        <input asp-for="price" class="form-control" />
+                        <span asp-validation-for="price" class="text-danger"></span>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label class="control-label">Chef</label>
+                        <select name="chef_Id" class="form-control" asp-items="ViewBag.chefs"></select>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label class="control-label">Upload Image</label>
+                        <input type="file" name="clientfile" class="form-control" />
+                    </div>
+                    <br />
+                    <div class="form-group text-center">
+                        <input type="submit" value="Create" class="btn w-25 text-center btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <a asp-controller="Manager" asp-action="Index" class="back-link">Back to List</a>
+    </div>
+
+</body>
+</html>

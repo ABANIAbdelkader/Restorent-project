@@ -1,0 +1,79 @@
+﻿@model Core.Models.Order
+
+@{
+    ViewData["Title"] = "Create Order";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+    <title>Create Order</title>
+    <style>
+        body {
+            background-image: url('/images/bgg.jpg');
+            background-color: #343a40; /* Dark background */
+            color: #ffc107; /* Warning text color */
+        }
+
+        .form-container {
+            background-color: #495057; /* Slightly lighter background for form */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Bootstrap primary color */
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3; /* Darker shade on hover */
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Create Order</h1>
+        <h4 class="text-center">Please fill in the details below</h4>
+        <hr />
+        <div class="row justify-content-center">
+            <div class="col-md-6 form-container">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" placeholder="Enter your name" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="phonenumber" class="control-label"></label>
+                        <input asp-for="phonenumber" class="form-control" placeholder="Enter your phone number" />
+                        <span asp-validation-for="phonenumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Adress" class="control-label"></label>
+                        <input asp-for="Adress" class="form-control" placeholder="Enter your address" />
+                        <span asp-validation-for="Adress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" value="Next" class="btn btn-primary" asp-route-mealid="@ViewBag.mealid" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="text-center mt-3">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-link text-warning">Back to List</a>
+        </div>
+    </div>
+
+</body>
+</html>

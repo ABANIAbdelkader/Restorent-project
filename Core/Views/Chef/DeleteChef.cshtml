@@ -1,0 +1,104 @@
+﻿@model Chef
+@{
+    ViewData["Title"] = "DeleteChef";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>Delete Chef</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffc107;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            margin-top: 5%;
+            max-width: 600px;
+        }
+
+        .form-control {
+            background-color: #343a40;
+            color: #ffc107;
+            border: 1px solid #ffc107;
+        }
+
+            .form-control::placeholder {
+                color: #ffc107;
+                opacity: 0.6;
+            }
+
+        .btn-custom {
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            width: 100%;
+        }
+
+            .btn-custom:hover {
+                background-color: #ff4c4c;
+            }
+
+        .form-label {
+            color: #ffc107;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #ffc107;
+        }
+
+        .container {
+            max-width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container form-container">
+        <h2 class="text-center mb-4">Delete Chef</h2>
+        <form method="post" asp-action="DeleteChef">
+            <div class="mb-3">
+                <label asp-for="name" class="form-label">Chef Name</label>
+                <input asp-for="name" class="form-control" placeholder="Enter Chef's Name" required />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Adress" class="form-label">Address</label>
+                <input asp-for="Adress" class="form-control" placeholder="Enter Address" required />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Card_Number" class="form-label">Card Number</label>
+                <input asp-for="Card_Number" class="form-control" placeholder="Enter Card Number" required />
+            </div>
+             <div class="mb-3">
+                <label asp-for="Card_Password" class="form-label">Card Password</label>
+                <input asp-for="Card_Password" class="form-control" placeholder="Enter Card Number" required />
+            </div>
+
+            <div class="mb-4">
+                <label  class="form-label">Manager Password</label>
+				<input type="password" name="managerpassword" class="form-control" placeholder="Enter Password" required />
+            </div>
+
+            <div class="text-center">
+                <button type="submit"  class="btn btn-custom">Delete Chef</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

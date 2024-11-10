@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Manager and User Interface";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-image:url('/images/OIP.jpg');  /* Replace with your image path */
+            background-size:cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            hight: 500vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+
+        }
+        .overlay {
+            height:700px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #f8f9fa;
+        }
+
+        .container {
+            max-width
+        }
+        h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .btn-custom {
+            margin: 10px;
+            padding: 15px 30px;
+            border-radius: 25px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+            .btn-custom:hover {
+                transform: scale(1.05);
+             
+                color: #212529;
+            }
+
+        .btn-outline-warning {
+            border-color: #ffc107;
+        }
+    </style>
+   
+</head>
+
+<body >
+   <div class="body">
+
+   
+    <div class="bg-image">
+        <div class="overlay text-center">
+                 <hr class="my-4" />
+            <div class="container">
+                <div class="row justify-content-center">
+                        <div class="col-md-8">
+							<h3 class="text-info">Restorant</h3> <h1 > Food Star</h1> 
+
+                    </div>
+                    <div class="col-md-8">
+                        <a class="btn btn-custom btn-lg btn-outline-info" asp-controller="Manager" asp-action="Login">Manager</a>
+                        <a class="btn btn-custom btn-lg btn-outline-info" asp-controller="Home" asp-action="Index">Client</a>
+                            <a class="btn btn-custom btn-lg btn-outline-info" asp-controller="Chef" asp-action="Login">Chef</a>
+                          </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	</div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

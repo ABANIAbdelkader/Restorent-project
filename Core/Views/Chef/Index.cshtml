@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Order_Meal>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>Manager and User Interface</title>
+    <style>
+        body {
+            background-image: url('/images/bgg.jpg');
+            background-color: #343a40; /* Dark background */
+            color: #ffc107; /* Warning text color */
+        }
+        .meal-image {
+            max-width: 150px; /* Set the maximum width for the image */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-warning">
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Orders Of Clients</h1>
+
+        @foreach (Order_Meal item in Model)
+        {
+            <div class="card bg-secondary text-light mb-3">
+                <div class="card-body d-flex align-items-center">
+                    <img src="~/images/@item.meal.imagePath" class="meal-image me-3" alt="Meal Image" />
+
+                    <div>
+                       
+                        <p><strong>Meal:</strong> @item.meal.Name</p>
+                          <a asp-controller="Order_Meal" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-success btn-sm">Completed</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="text-center">
+            <a asp-controller="Home" asp-action="ManiPage" class="btn btn-primary">Back to the main page</a>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

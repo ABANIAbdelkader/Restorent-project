@@ -1,0 +1,77 @@
+﻿@model Core.Models.Order
+
+@{
+    ViewData["Title"] = "Order Details";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>Order Details</title>
+    <style>
+        body {
+            background-image: url('/images/bgg.jpg');
+            background-color: #343a40; /* Dark background */
+            color: #ffc107; /* Warning text color */
+        }
+
+        .details-card {
+            background-color: #495057; /* Card background */
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-link {
+            color: #ffc107; /* Link color */
+        }
+
+            .btn-link:hover {
+                text-decoration: underline; /* Underline on hover */
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Order Details</h1>
+        <hr />
+
+        <div class="details-card">
+            <h4>Order Information</h4>
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.phonenumber)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.phonenumber)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Adress)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Adress)
+                </dd>
+            </dl>
+        </div>
+
+        <div class="text-center mt-4">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+
+</body>
+</html>

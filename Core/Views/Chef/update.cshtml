@@ -1,0 +1,119 @@
+﻿@model Core.Models.Chef
+
+@{
+    ViewData["Title"] = "Update Chef";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>Update Chef</title>
+    <style>
+        body {
+            background-color: #343a40; /* Dark background */
+            color: #ffc107; /* Yellow text */
+            font-family: Arial, sans-serif;
+        }
+
+        h1, h4 {
+            color: #ffc107; /* Yellow headings */
+            text-align: center;
+        }
+
+        .form-control {
+            background-color: #495057; /* Darker input fields */
+            color: #ffc107; /* Yellow text in input fields */
+            border: 1px solid #ffc107; /* Yellow border */
+        }
+
+            .form-control:focus {
+                background-color: #6c757d; /* Lighter focus state */
+                color: #fff; /* White text on focus */
+                border-color: #ffc107; /* Yellow border on focus */
+            }
+
+        .btn-primary {
+            background-color: #ffc107; /* Yellow button */
+            border-color: #ffc107; /* Yellow border */
+            width: 100%; /* Full width button */
+        }
+
+            .btn-primary:hover {
+                background-color: #e0a800; /* Darker yellow on hover */
+                border-color: #e0a800; /* Darker yellow border on hover */
+            }
+
+        .text-danger {
+            color: #dc3545; /* Red for validation messages */
+        }
+
+        .container {
+            margin-top: 50px; /* Space from the top */
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #ffc107; /* Yellow text */
+        }
+
+            .back-link:hover {
+                text-decoration: underline;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Update Chef</h1>
+        <h4>Fill in the details below</h4>
+        <hr />
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form method="post" asp-action="update">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Adress" class="control-label"></label>
+                        <input asp-for="Adress" class="form-control" />
+                        <span asp-validation-for="Adress" class="text-danger"></span>
+                    </div>
+
+                    <input type="hidden" asp-for="id" />
+                    <div class="form-group">
+                        <label asp-for="name" class="control-label"></label>
+                        <input asp-for="name" class="form-control" />
+                        <span asp-validation-for="name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Card_Number" class="control-label"></label>
+                        <input asp-for="Card_Number" class="form-control" />
+                        <span asp-validation-for="Card_Number" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="chef_meals" hidden class="control-label"></label>
+                        <input asp-for="chef_meals" hidden class="form-control" />
+                        <span asp-validation-for="chef_meals" hidden class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Card_Password" class="control-label"></label>
+                        <input asp-for="Card_Password" class="form-control" />
+                        <span asp-validation-for="Card_Password" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group text-center">
+                        <input type="submit" value="Save" class="btn w-25 btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <a asp-controller="Manager" asp-action="Index" class="back-link">Back to List</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿@model Manager
+@{
+    ViewData["Title"] = "Login";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Core.styles.css" asp-append-version="true" />
+    <style>
+        /* Custom styling for login form */
+        body {
+            background-image:url('/images/dr.jpg');
+            background-color: #121212;
+            color: #ffc107;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            margin-top: 5%;
+        }
+
+        .form-control {
+            background-color: #343a40;
+            color: #ffc107;
+            border: 1px solid #ffc107;
+        }
+
+            .form-control::placeholder {
+                color: #ffc107;
+                opacity: 0.6;
+            }
+
+        .btn-custom {
+            background-color: #ffc107;
+            color: #121212;
+            border: none;
+        }
+
+            .btn-custom:hover {
+                background-color: #ffcd39;
+                color: #000;
+            }
+
+        .text-center h1 {
+            font-size: 2.5rem;
+        }
+
+        .container {
+            max-width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container login-container">
+        <form asp-controller="Manager" asp-action="Login" method="post" class="p-3">
+            <div class="text-center mb-4">
+                <h1>Login</h1>
+                <hr class="text-warning w-50 mx-auto" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Card_Number" class="form-label">Card Number</label>
+                <input asp-for="Card_Number" class="form-control" placeholder="Enter Card Number" required />
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="Card_Password" class="form-label">Password</label>
+                <input asp-for="Card_Password" type="password" class="form-control" placeholder="Enter Password" required />
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-custom w-50">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

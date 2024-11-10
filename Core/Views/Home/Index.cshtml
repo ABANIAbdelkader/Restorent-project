@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Meal>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"]</title>
+<style>
+    body{
+        background-image:url('/images/bgg.jpg');
+    }
+</style>
+</head>
+
+<body class="bg-dark text-dark">
+
+    <div class="container py-5">
+         @foreach (Meal item in Model)
+        {
+            <div class="card mb-4 shadow">
+                <div class="row g-0">
+                    <div class="col-md-4 d-flex flex-grow-0 align-items-stretch">
+                        <img src="~/images/@item.imagePath" class="img-fluid w-100 rounded-start" alt="Meal Image" style="height: 250px; object-fit: cover; flex-grow;" />
+                    </div>
+                    <div class="col-md-8 bg-black">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">@item.Name</h5>
+                            <ul class="list-unstyled text-muted">
+                                 <li><strong>Price:</strong> $@item.price</li>
+                                <li><strong>Description:</strong> @item.Description</li>
+                            </ul>
+                            <div>
+                                <a asp-controller="@ViewBag.Controller"
+                                   asp-action="@ViewBag.Action"
+                                   asp-route-Mealid="@item.Id"
+                                   asp-route-orderid="@ViewBag.orderid"
+                                   class="btn btn-success">
+                                    Buy
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+		<div class="text-center">
+            @if(CurrentOrder.ThisOrder==null){
+                <a asp-controller="Orders" asp-action="Create" class="btn btn-secondary">My Orders</a>
+            }else
+            {
+                <a asp-controller="Orders" asp-action="Index" class="btn btn-secondary">My Orders</a>
+
+            }
+		</div><br />
+        <div class="text-center">
+			<a asp-action="ManiPage" class="btn btn-danger">Back to Main Page</a>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

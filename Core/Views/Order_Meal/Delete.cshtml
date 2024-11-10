@@ -1,0 +1,25 @@
+﻿@model Order_Meal
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Order_Meal</h4>
+    <hr />
+    <script>
+        function confirmDelete() {
+            return confirm("هل أنت متأكد أنك تريد حذف هذا العنصر؟");
+        }
+    </script>
+    <form asp-action="Delete" >
+        <label>Order ID: @Model.OrderId</label><br />
+        <label>Meal ID: @Model.MealId</label><br />
+        <input type="hidden" asp-for="Id" />    
+        <input type="submit" onclick="return confirmDelete()" value="Delete" class="btn btn-danger" /> |
+        <a asp-controller="Orders" asp-action="Index">Back to List</a>
+    </form>
+</div>

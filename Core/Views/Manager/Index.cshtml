@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-image: url('/images/bgg.jpg');
+            background-color: #343a40; /* Dark background */
+            color: #ffc107; /* Warning text color */
+        }
+        </style>
+</head>
+
+<body class="bg-light ">
+
+    <div class="container mt-5">
+       
+        <div class="row">
+            <!-- Chefs Section -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow">
+                    <div class="card-header bg-warning text-white">
+                        <h2>Chefs</h2>
+                    </div>
+                    <div class="card-body bg-dark">
+                        @foreach (Chef item in ViewBag.Chef)
+                        {
+                            <div class="border-bottom pb-3 mb-3">
+                                <ul class="list-unstyled">
+                                    <li><strong>Name:</strong> @item.name</li>
+                                    <li><strong>Address:</strong> @item.Adress</li>
+                                    <li><strong>Card Number:</strong> @item.Card_Number</li>
+                                    <li><strong>Card Password:</strong> @item.Card_Password</li>
+                                </ul>
+                                <div>
+                                    <a asp-controller="Chef" asp-action="update" asp-route-id="@item.id" class="btn btn-warning">Update</a>
+                                    <a asp-controller="Chef" asp-action="DeleteChef" asp-route-id="@item.id" class="btn btn-danger">Delete</a>
+                                </div>
+                            </div>
+                        }
+                        <a asp-controller="Chef" asp-action="AddChef" class="btn btn-success mt-3">Add Chef</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meals Section -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow">
+                    <div class="card-header bg-warning text-white">
+                        <h2>Meals</h2>
+                    </div>
+                    <div class="card-body bg-dark">
+                        @foreach (Meal item in ViewBag.meal)
+                        {
+                            <div class="row mb-4 align-items-center border-bottom pb-3">
+                                <div class="col-md-4">
+                                    <img src="~/images/@item.imagePath" class="img-fluid w-100 rounded shadow" alt="Meal Image" />
+                                </div>
+                                <div class="col-md-8">
+                                    <ul class="list-unstyled">
+                                        <li><strong>Name:</strong> @item.Name</li>
+                                           <li><strong>Price:</strong> @item.price</li>
+                                        <li><strong>Description:</strong> @item.Description</li>
+                                    </ul>
+                                    <div>
+                                        <a asp-controller="Meals" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Update Info</a>
+                                        <a asp-controller="Meals" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <a asp-controller="Meals" asp-action="Create" class="btn btn-success mt-3">Add Meal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Main Page Button -->
+        <div class="text-center">
+            <a asp-controller="Home" asp-action="ManiPage" class="btn btn-danger">Back to Main Page</a>
+        </div>
+
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

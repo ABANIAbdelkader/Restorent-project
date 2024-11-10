@@ -1,0 +1,68 @@
+﻿@model Core.Models.Chef
+
+@{
+    ViewData["Title"] = "Add Chef";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>Add Chef</title>
+</head>
+
+<body class="bg-dark text-warning">
+
+    <div class="container mt-5">
+        <h1 class="text-center">Add Chef</h1>
+        <h4 class="text-center">Chef Details</h4>
+        <hr />
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form asp-action="AddChef">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="Adress" class="control-label"></label>
+                        <input asp-for="Adress" class="form-control bg-secondary" placeholder="Enter Address" />
+                        <span asp-validation-for="Adress" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="name" class="control-label"></label>
+                        <input asp-for="name" class="form-control bg-secondary" placeholder="Enter Name" />
+                        <span asp-validation-for="name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Card_Number" class="control-label"></label>
+                        <input asp-for="Card_Number" class="form-control bg-secondary" placeholder="Enter Card Number" />
+                        <span asp-validation-for="Card_Number" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Card_Password" class="control-label"></label>
+                        <input asp-for="Card_Password" class="form-control bg-secondary" placeholder="Enter Card Password" type="password" />
+                        <span asp-validation-for="Card_Password" class="text-danger"></span>
+                    </div
+                    <br />
+
+                    <div class="form-group text-center">
+                        <input type="submit" value="Create" class="btn btn-warning btn-block" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="text-center mt-3">
+            <a asp-controller="Manager" asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

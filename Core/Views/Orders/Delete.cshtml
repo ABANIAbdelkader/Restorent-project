@@ -1,0 +1,62 @@
+﻿@model Core.Models.Order
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>Manager and User Interface</title>
+    <style>
+        body {
+            background-image: url('/images/bgg.jpg');
+            background-color: #343a40; /* Dark background */
+            color: #ffc107; /* Warning text color */
+        }</style>
+</head>
+
+<body class="bg-dark text-warning">
+
+    <div class="container mt-5">
+        <h1 class="text-danger">Delete Order</h1>
+
+        <h3>Are you sure you want to delete this order?</h3>
+        <div class="card bg-secondary text-white mb-3">
+            <div class="card-header">Order Details</div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.phonenumber)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.phonenumber)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Adress)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Adress)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </form>
+    </div>
+
+</body>
+</html>
